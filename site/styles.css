@@ -310,11 +310,6 @@ em.warm { color: var(--warm); }
 .stage-chrome span:first-child { background: rgba(255, 95, 86, 0.7); }
 .stage-chrome span:nth-child(2) { background: rgba(255, 189, 46, 0.7); }
 .stage-chrome span:nth-child(3) { background: rgba(39, 201, 63, 0.55); }
-.stage-chrome em {
-  margin-left: auto;
-  font-style: normal;
-  letter-spacing: 0.04em;
-}
 
 .stage-body {
   position: relative;
@@ -354,8 +349,8 @@ em.warm { color: var(--warm); }
 [data-placeholder]::after {
   content: attr(data-placeholder);
   position: absolute;
-  left: 0.75rem;
-  bottom: 0.6rem;
+  right: 0.75rem;
+  top: 0.6rem;
   padding: 0.18rem 0.5rem;
   font-size: 0.68rem;
   letter-spacing: 0.04em;
@@ -366,25 +361,10 @@ em.warm { color: var(--warm); }
   pointer-events: none;
 }
 
-/* Floating annotation pointing at the stage */
-.stage-annotation {
-  position: absolute;
-  left: -3rem;
-  bottom: 1rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.78);
-  transform: rotate(-4deg);
-}
-.stage-annotation svg { flex-shrink: 0; }
-
-@media (max-width: 720px) {
-  .stage-annotation { left: -0.5rem; bottom: -1.6rem; }
-}
+/* The "you place this" annotation lives inside the scene SVG itself
+   (see .scene-illustration > .scene-annotation in index.html) so it
+   scales with the stage at any breakpoint. No external positioning
+   needed here. */
 
 /* --- trust strip --------------------------------------------------- */
 .trust-strip {
@@ -848,6 +828,5 @@ em.warm { color: var(--warm); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .stage-frame { transform: none; }
-  .stage-annotation { transform: none; }
   .chips li { transform: none !important; }
 }
