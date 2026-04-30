@@ -942,6 +942,7 @@ em.warm { color: var(--warm); }
   color: rgba(236, 237, 242, 0.88);
 }
 
+.legal .legal-facts,
 .legal .legal-placeholder {
   margin: 1rem 0;
   padding: 1rem 1.15rem;
@@ -952,16 +953,19 @@ em.warm { color: var(--warm); }
   color: rgba(236, 237, 242, 0.9);
 }
 
+.legal .legal-facts dt,
 .legal .legal-placeholder dt {
   font-weight: 600;
   color: #fff;
   margin-top: 0.65rem;
 }
 
+.legal .legal-facts dt:first-child,
 .legal .legal-placeholder dt:first-child {
   margin-top: 0;
 }
 
+.legal .legal-facts dd,
 .legal .legal-placeholder dd {
   margin: 0.35rem 0 0;
   color: var(--muted);
