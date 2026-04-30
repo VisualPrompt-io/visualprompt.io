@@ -3,11 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="VisualPrompt — compose 3D scenes as spatial visual prompts for generative image and video models." />
-  <title>VisualPrompt — 3D layout as your prompt</title>
+  <meta name="description" content="VisualPrompt — make AI pictures the way you actually pictured them. Place objects, frame the camera, describe the vibe. No prompt-engineering required." />
+  <meta property="og:title" content="VisualPrompt — make AI pictures the way you actually pictured them" />
+  <meta property="og:description" content="The bridge between AI image generation and people who don't speak AI. Place. Frame. Describe. Done." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://visualprompt.io/" />
+  <title>VisualPrompt — make AI pictures the way you actually pictured them</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,450&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Fraunces:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -15,137 +19,385 @@
 
   <header class="site-header">
     <div class="container header-inner">
-      <a class="logo" href="#">Visual<span class="logo-mark">Prompt</span></a>
+      <a class="logo" href="#top" aria-label="VisualPrompt — home">
+        <span class="logo-mark" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2.5" y="2.5" width="11" height="11" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
+            <rect x="8.5" y="8.5" width="11" height="11" rx="1.5" stroke="currentColor" stroke-width="1.6" opacity="0.55"/>
+          </svg>
+        </span>
+        <span class="logo-word">visual<span class="logo-em">prompt</span></span>
+      </a>
       <nav class="nav" aria-label="Primary">
-        <a href="#why">Why</a>
+        <a href="#problem">Why</a>
+        <a href="#bridge">The bridge</a>
         <a href="#how">How it works</a>
-        <a href="#product">Editor</a>
-        <a class="btn btn-primary" href="https://app.visualprompt.io/">Launch app</a>
+        <a href="#for-you">For you?</a>
+        <a class="btn btn-primary" href="https://app.visualprompt.io/">Open the editor →</a>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <section class="hero container">
-      <div class="hero-grid">
+    <a id="top" tabindex="-1"></a>
+
+    <!-- HERO ============================================================ -->
+    <section class="hero">
+      <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">Spatial prompting for AI</p>
-          <h1>Show the model <em>where</em> things belong—not only how they look.</h1>
+          <p class="eyebrow">For people who don't speak AI</p>
+          <h1>
+            Make AI pictures
+            <span class="serif"><em>the way you actually</em></span>
+            <span class="hl">pictured them.</span>
+          </h1>
+
           <p class="hero-lede">
-            VisualPrompt is a browser editor where you compose a 3D layout, camera, and scene context, then attach a natural-language prompt so generative pipelines can interpret space and framing—not guesses from prose alone.
+            AI is great at painting. It's pretty bad at reading your mind.
+            <strong>VisualPrompt sits in between.</strong>
+            Drop a few shapes where you want things, frame the picture like a phone camera,
+            write one normal sentence — and let the AI do the painting part.
           </p>
+
           <div class="hero-actions">
-            <a class="btn btn-lg btn-inverse" href="https://app.visualprompt.io/">Open VisualPrompt</a>
-            <a class="btn btn-lg btn-ghost" href="#how">See how it works</a>
+            <a class="btn btn-lg btn-inverse" href="https://app.visualprompt.io/">Try it now — it's a browser tab</a>
+            <a class="btn btn-lg btn-ghost" href="#how">Show me how it works</a>
           </div>
+
+          <p class="hero-foot small muted">
+            No installs. No prompt courses. No "negative prompts", whatever those are.
+          </p>
         </div>
 
-        <aside class="hero-panel" aria-labelledby="benefits-heading">
-          <h2 id="benefits-heading" class="muted" style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em;">
-            Why layouts beat text-alone prompts
+        <!-- Asymmetric, slightly tilted product card -->
+        <aside class="hero-stage" aria-label="Product preview">
+          <div class="stage-frame">
+            <div class="stage-chrome">
+              <span></span><span></span><span></span>
+              <em>app.visualprompt.io</em>
+            </div>
+            <div class="stage-body">
+              <!-- Decorative illustration: a tiny scene + camera framing -->
+              <svg class="scene-illustration" viewBox="0 0 320 200" role="img" aria-label="A simple staged scene with a cube and a sphere on a ground plane, framed by a camera viewfinder">
+                <defs>
+                  <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#9bbcff" stop-opacity="0.18"/>
+                    <stop offset="1" stop-color="#9bbcff" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <!-- ground plane -->
+                <path d="M20 150 L300 150 L260 185 L60 185 Z" fill="url(#ground)" stroke="rgba(255,255,255,0.18)"/>
+                <!-- grid lines -->
+                <path d="M60 185 L100 150 M120 185 L150 150 M180 185 L200 150 M240 185 L250 150" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                <!-- cube -->
+                <g transform="translate(100 95)">
+                  <path d="M0 30 L30 15 L60 30 L60 60 L30 75 L0 60 Z" fill="rgba(91,156,255,0.25)" stroke="#9bc1ff" stroke-width="1.6"/>
+                  <path d="M0 30 L30 45 L60 30 M30 45 L30 75" stroke="#9bc1ff" stroke-width="1.6" fill="none"/>
+                </g>
+                <!-- sphere -->
+                <circle cx="220" cy="125" r="22" fill="rgba(255,210,140,0.25)" stroke="#ffd28c" stroke-width="1.6"/>
+                <circle cx="213" cy="118" r="6" fill="rgba(255,255,255,0.35)"/>
+                <!-- cone hint -->
+                <path d="M170 140 L185 100 L200 140 Z" fill="rgba(178,255,200,0.18)" stroke="#b5f0c8" stroke-width="1.4"/>
+                <!-- camera frame brackets -->
+                <g stroke="#fff" stroke-width="1.6" fill="none" opacity="0.85">
+                  <path d="M30 35 L30 20 L50 20"/>
+                  <path d="M290 20 L305 20 L305 38"/>
+                  <path d="M305 165 L305 182 L285 182"/>
+                  <path d="M50 182 L30 182 L30 165"/>
+                </g>
+                <!-- caption -->
+                <text x="160" y="14" text-anchor="middle" fill="rgba(255,255,255,0.55)" font-family="Inter, sans-serif" font-size="9" letter-spacing="2">YOUR FRAME — YOUR CALL</text>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Floating "you direct" annotation -->
+          <div class="stage-annotation" aria-hidden="true">
+            <svg width="48" height="36" viewBox="0 0 48 36" fill="none">
+              <path d="M2 4 C 18 8, 30 24, 44 32" stroke="#9bc1ff" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-dasharray="2 4"/>
+              <path d="M40 26 L46 33 L38 34" stroke="#9bc1ff" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>you place this</span>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Soft trust strip -->
+      <div class="container trust-strip">
+        <span>Built for people who say things like:</span>
+        <em>"I have an idea, I just can't <u>describe</u> it."</em>
+      </div>
+    </section>
+
+    <!-- PROBLEM / SOUND FAMILIAR ======================================== -->
+    <section id="problem" class="band band-problem">
+      <div class="container problem-grid">
+        <div class="problem-head">
+          <p class="eyebrow eyebrow-warm">Sound familiar?</p>
+          <h2>
+            You typed the prompt seven times.<br/>
+            <span class="serif"><em>The cat is still floating.</em></span>
           </h2>
-          <ul class="stat-list">
-            <li><strong>You place, models see framing</strong>Position entities directly; the viewport encodes occlusion, scale cues, and camera intent.</li>
-            <li><strong>Consistency</strong>Reuse scene structure across iterations instead of rewriting spatial prose each time.</li>
-            <li><strong>Fewer hallucinations</strong>Models anchor on geometry and viewpoint where the toolchain supports structured scene snapshots.</li>
+          <p class="muted">
+            Every "AI image" tool wants you to be a poet, a photographer, and a Stable&nbsp;Diffusion engineer.
+            Most people aren't. Most people just have an <strong>idea</strong>.
+          </p>
+        </div>
+
+        <ul class="pain-list" role="list">
+          <li class="pain pain-a">
+            <div class="pain-quote">"A cosy reading nook with a cat by the window."</div>
+            <div class="pain-result">→ five mugs and a confused dog.</div>
+          </li>
+          <li class="pain pain-b">
+            <div class="pain-quote">"Slightly above and behind the lamp."</div>
+            <div class="pain-result">→ AI: <em>does whatever it feels like.</em></div>
+          </li>
+          <li class="pain pain-c">
+            <div class="pain-quote">Tries again with "cinematic, 35mm, golden hour".</div>
+            <div class="pain-result">→ still the wrong scene. Now blurrier.</div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- THE BRIDGE ====================================================== -->
+    <section id="bridge" class="band band-bridge">
+      <div class="container bridge-grid">
+        <div class="bridge-visual" aria-hidden="true">
+          <svg viewBox="0 0 420 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A small bridge connecting a person on the left to an AI on the right">
+            <defs>
+              <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#1f3f6f" stop-opacity="0.0"/>
+                <stop offset="1" stop-color="#1f3f6f" stop-opacity="0.35"/>
+              </linearGradient>
+            </defs>
+            <rect x="0" y="0" width="420" height="240" fill="url(#sky)"/>
+
+            <!-- left shore -->
+            <path d="M0 200 L150 200 L130 230 L0 230 Z" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.18)"/>
+            <!-- right shore -->
+            <path d="M270 200 L420 200 L420 230 L290 230 Z" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.18)"/>
+
+            <!-- bridge -->
+            <path d="M150 200 C 200 160, 220 160, 270 200" stroke="#9bc1ff" stroke-width="2.4" fill="none"/>
+            <path d="M150 200 L150 215 M270 200 L270 215" stroke="#9bc1ff" stroke-width="1.6"/>
+            <path d="M170 188 L170 205 M195 178 L195 200 M225 178 L225 200 M250 188 L250 205" stroke="rgba(155,193,255,0.5)" stroke-width="1.2"/>
+
+            <!-- bridge label -->
+            <text x="210" y="155" text-anchor="middle" fill="rgba(255,255,255,0.78)" font-family="Fraunces, serif" font-style="italic" font-size="15">VisualPrompt</text>
+
+            <!-- left figure (you) -->
+            <g transform="translate(85 145)">
+              <circle cx="0" cy="0" r="9" fill="none" stroke="#fff" stroke-width="1.6"/>
+              <path d="M0 9 L0 35 M-12 22 L12 22 M-10 50 L0 35 L10 50" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+              <text x="0" y="74" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-family="Inter, sans-serif" font-size="11" letter-spacing="2">YOU</text>
+            </g>
+
+            <!-- right figure (AI) -->
+            <g transform="translate(345 150)">
+              <rect x="-16" y="-14" width="32" height="28" rx="6" fill="none" stroke="#ffd28c" stroke-width="1.6"/>
+              <circle cx="-6" cy="-2" r="2" fill="#ffd28c"/>
+              <circle cx="6" cy="-2" r="2" fill="#ffd28c"/>
+              <path d="M-6 7 Q 0 10 6 7" stroke="#ffd28c" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+              <path d="M-16 -10 L-22 -10 M16 -10 L22 -10 M-16 6 L-22 6 M16 6 L22 6" stroke="#ffd28c" stroke-width="1.4"/>
+              <text x="0" y="34" text-anchor="middle" fill="rgba(255,210,140,0.85)" font-family="Inter, sans-serif" font-size="11" letter-spacing="2">AI</text>
+            </g>
+
+            <!-- water hint -->
+            <path d="M0 230 Q 105 240 210 230 T 420 230" stroke="rgba(155,193,255,0.25)" stroke-width="1" fill="none"/>
+          </svg>
+        </div>
+
+        <div class="bridge-copy">
+          <p class="eyebrow">The actual idea</p>
+          <h2>The bridge between <em>you</em> and <em>AI</em>.</h2>
+          <p>
+            You have an image in your head. AI knows how to paint almost anything.
+            The hard part — the part nobody sells you a course on, because it shouldn't need one —
+            is in the <strong>middle</strong>.
+          </p>
+          <p>
+            VisualPrompt is that middle. You stage your idea like a tiny film set. The AI takes it from there.
+          </p>
+          <ul class="bridge-bullets" role="list">
+            <li><b>You</b> place the things.</li>
+            <li><b>You</b> point the camera.</li>
+            <li><b>You</b> say the vibe in plain words.</li>
+            <li><b>The AI</b> handles colors, light, materials, mood.</li>
           </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS ==================================================== -->
+    <section id="how" class="band band-how">
+      <div class="container">
+        <header class="section-head section-head-left">
+          <p class="eyebrow">How it works</p>
+          <h2>Three small things. <span class="serif"><em>One real picture.</em></span></h2>
+          <p class="muted">No tutorial. The whole flow takes about as long as writing a tweet.</p>
+        </header>
+
+        <ol class="steps" role="list">
+          <li class="step step-1">
+            <div class="step-marker"><span>01</span></div>
+            <div class="step-body">
+              <h3>Place</h3>
+              <p>Drag simple blocks onto the floor. A box for the couch, a sphere for the cat, a cone for the lamp. Like building with toy bricks. <em>You can't break it.</em></p>
+            </div>
+            <div class="step-doodle" aria-hidden="true">
+              <svg viewBox="0 0 120 80" fill="none">
+                <rect x="14" y="40" width="34" height="26" rx="3" stroke="#9bc1ff" stroke-width="1.6"/>
+                <circle cx="72" cy="55" r="11" stroke="#ffd28c" stroke-width="1.6"/>
+                <path d="M95 64 L102 40 L109 64 Z" stroke="#b5f0c8" stroke-width="1.6"/>
+                <path d="M0 70 L120 70" stroke="rgba(255,255,255,0.2)" stroke-dasharray="2 4"/>
+              </svg>
+            </div>
+          </li>
+
+          <li class="step step-2">
+            <div class="step-marker"><span>02</span></div>
+            <div class="step-body">
+              <h3>Frame</h3>
+              <p>Spin around your scene until it looks like the picture you wanted. Closer? Lower? More tilted? Move the camera, not the words.</p>
+            </div>
+            <div class="step-doodle" aria-hidden="true">
+              <svg viewBox="0 0 120 80" fill="none">
+                <rect x="22" y="14" width="76" height="52" stroke="#fff" stroke-width="1.6"/>
+                <path d="M22 14 L8 6 M98 14 L112 6 M22 66 L8 74 M98 66 L112 74" stroke="rgba(255,255,255,0.5)" stroke-width="1.4"/>
+                <circle cx="60" cy="40" r="3" fill="#9bc1ff"/>
+              </svg>
+            </div>
+          </li>
+
+          <li class="step step-3">
+            <div class="step-marker"><span>03</span></div>
+            <div class="step-body">
+              <h3>Describe</h3>
+              <p>One sentence is enough. <em>"Cosy reading nook, evening light, soft watercolor."</em> No magic words, no negative prompts, no formula.</p>
+            </div>
+            <div class="step-doodle" aria-hidden="true">
+              <svg viewBox="0 0 120 80" fill="none">
+                <rect x="10" y="18" width="100" height="40" rx="20" stroke="#9bc1ff" stroke-width="1.6"/>
+                <path d="M28 58 L20 70 L36 58" stroke="#9bc1ff" stroke-width="1.6" fill="none"/>
+                <path d="M22 32 L66 32 M22 42 L86 42" stroke="rgba(255,255,255,0.45)" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </li>
+        </ol>
+
+        <div class="steps-result" aria-label="Example output area">
+          <div class="result-arrow" aria-hidden="true">
+            <svg viewBox="0 0 60 28" fill="none">
+              <path d="M2 14 L52 14" stroke="#9bc1ff" stroke-width="1.6"/>
+              <path d="M44 6 L54 14 L44 22" stroke="#9bc1ff" stroke-width="1.6" fill="none"/>
+            </svg>
+          </div>
+          <div class="result-tile" data-placeholder="Example AI image — drop a real generated PNG here later">
+            <span class="result-caption">your picture, painted by the AI — but staged by you</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOR YOU IF ====================================================== -->
+    <section id="for-you" class="band band-foryou">
+      <div class="container foryou-grid">
+        <div class="foryou-copy">
+          <p class="eyebrow">It's for you if…</p>
+          <h2>
+            You have <em>an idea</em>,
+            <br/>not a <span class="strike">prompt-engineering certificate</span>.
+          </h2>
+          <p class="muted">
+            VisualPrompt is built for people who tried AI image tools once, didn't get what they wanted,
+            and quietly closed the tab. We made the tool we wanted to hand them.
+          </p>
+        </div>
+
+        <ul class="chips" role="list">
+          <li>Bloggers &amp; newsletter writers</li>
+          <li>Etsy / small-shop owners</li>
+          <li>Hobbyist makers &amp; journallers</li>
+          <li>Teachers &amp; parents</li>
+          <li>D&amp;D / tabletop folks</li>
+          <li>People who can't draw <em>(yet)</em></li>
+          <li>Anyone with a clear picture in their head</li>
+          <li>Curious humans, generally</li>
+        </ul>
+
+        <aside class="foryou-quote">
+          <blockquote>
+            "I'm not an AI person. I just want the lamp to be <em>over there</em>."
+          </blockquote>
+          <p class="quote-attrib">— literally everyone we built this for</p>
         </aside>
       </div>
     </section>
 
-    <section class="problem-solution band" id="why">
-      <div class="container two-col">
+    <!-- HONEST FINE PRINT =============================================== -->
+    <section class="band band-honest">
+      <div class="container honest-grid">
         <div>
-          <h2>The text-prompt bottleneck</h2>
-          <p>
-            Phrases like “a cube slightly above and behind a sphere” are ambiguous scale, ambiguous units, and easy to misunderstand. Humans and diffusion models alike interpret words differently—which shows up as wrong composition or inconsistent rerolls.
-          </p>
+          <p class="eyebrow">A note from us</p>
+          <h2 class="honest-title">We do <em>still images</em> today. <br/>That's it. <span class="serif">On purpose.</span></h2>
         </div>
-        <div>
-          <h2>Use the scene itself as context</h2>
-          <p>
-            VisualPrompt captures your scene—placement, proportions, framing—and pairs it with a normal creative brief. Together that becomes the <strong>visual prompt</strong>: layout plus language, grounded in pixels and depth instead of shorthand.
-          </p>
-        </div>
+        <p class="honest-body">
+          Plenty of AI tools promise everything and deliver soup. VisualPrompt does one thing:
+          it helps you direct an <strong>AI image</strong> instead of guessing at it.
+          More formats are on the way — but we'd rather ship one thing that actually works for you
+          than four that almost do.
+        </p>
       </div>
     </section>
 
-    <section class="band" id="how">
-      <div class="container">
-        <header class="section-head">
-          <h2>How it works</h2>
-          <p class="muted">Three coarse steps—from empty stage to handed-off generation intent.</p>
-        </header>
-        <ol class="step-cards" role="list">
-          <li>
-            <span class="step-num">1</span>
-            <h3>Compose in 3D</h3>
-            <p>Add entities from a palette, place them on the ground plane, tweak height with vertical drag, and orbit the camera the way you would in a nimble sandbox.</p>
-          </li>
-          <li>
-            <span class="step-num">2</span>
-            <h3>Align the visual prompt</h3>
-            <p>Iterate until the framing matches intent: occlusion, horizons, silhouette reads, emphasis. The viewport is cheap to explore compared to speculative text.</p>
-          </li>
-          <li>
-            <span class="step-num">3</span>
-            <h3>Combine with plain language</h3>
-            <p>Add mood, palette, realism level, constraints. The toolchain marries textual goals with grounded scene cues for rendering or video hops.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="product-band band" id="product">
-      <div class="container">
-        <header class="section-head">
-          <h2>What ships in the product</h2>
-          <p class="muted">Editor affordances you can reason about when helping users or extending the stack.</p>
-        </header>
-        <dl class="feature-grid">
-          <div>
-            <dt>Canvas & orbit camera</dt>
-            <dd>Manipulate viewpoint with familiar orbit controls plus keyboard zoom so creative direction maps directly to renders.</dd>
-          </div>
-          <div>
-            <dt>Entity lifecycle</dt>
-            <dd>Sidebar spawn, grounded placement with optional snap, trash affordance—all optimized for tactile iteration.</dd>
-          </div>
-          <div>
-            <dt>Post & lighting tools</dt>
-            <dd>Integrated color correction knobs for rapid look exploration before export snapshots.</dd>
-          </div>
-          <div>
-            <dt>Integrated generation</dt>
-            <dd>Backed by Supabase and secure edge functions—images build from scene context plus authored prompts rather than pasted URLs.</dd>
-          </div>
-        </dl>
-      </div>
-    </section>
-
-    <section class="cta band">
+    <!-- CTA ============================================================= -->
+    <section class="band band-cta">
       <div class="container cta-inner">
-        <div>
-          <h2>Ready to place your next idea?</h2>
-          <p class="muted">Open the hosted editor—it lives on <strong>app.visualprompt.io</strong>.</p>
+        <div class="cta-copy">
+          <h2>Ready to place your idea?</h2>
+          <p class="muted">It opens in a browser tab. There's nothing to install, sign up takes a moment, and the first picture takes about a minute.</p>
         </div>
-        <a class="btn btn-lg btn-inverse" href="https://app.visualprompt.io/">Go to editor</a>
+        <div class="cta-actions">
+          <a class="btn btn-lg btn-inverse" href="https://app.visualprompt.io/">Open VisualPrompt →</a>
+          <span class="cta-host small muted">app.visualprompt.io</span>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-grid">
-      <div>
-        <div class="footer-logo logo">VisualPrompt</div>
-        <div class="small muted">Marketing site source is public in this repo. Product development lives in private application repositories.</div>
+      <div class="footer-brand">
+        <div class="footer-logo logo">
+          <span class="logo-mark" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 22 22" fill="none">
+              <rect x="2.5" y="2.5" width="11" height="11" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
+              <rect x="8.5" y="8.5" width="11" height="11" rx="1.5" stroke="currentColor" stroke-width="1.6" opacity="0.55"/>
+            </svg>
+          </span>
+          <span class="logo-word">visual<span class="logo-em">prompt</span></span>
+        </div>
+        <p class="small muted">
+          The bridge between AI image generation and people who don't speak AI.
+        </p>
       </div>
-      <div class="footer-links">
-        <a href="https://github.com/VisualPrompt-io">GitHub org</a>
+      <nav class="footer-links" aria-label="Footer">
         <a href="https://app.visualprompt.io/">Web app</a>
-        <a href="https://github.com/VisualPrompt-io/visualprompt.io">This repository</a>
-      </div>
+        <a href="#how">How it works</a>
+        <a href="#for-you">Who it's for</a>
+        <a href="https://github.com/VisualPrompt-io">GitHub</a>
+      </nav>
+    </div>
+    <div class="container footer-fine small muted">
+      © <span id="yr">2026</span> VisualPrompt. Marketing site source is public; the editor lives at app.visualprompt.io.
     </div>
   </footer>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
