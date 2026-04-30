@@ -786,7 +786,7 @@ em.warm { color: var(--warm); }
 /* --- footer ------------------------------------------------------- */
 .site-footer {
   border-top: 1px solid var(--line);
-  padding: 2.25rem 0 2rem;
+  padding: 2.25rem 0 0;
   margin-top: 1rem;
   font-size: 0.9rem;
 }
@@ -818,10 +818,153 @@ em.warm { color: var(--warm); }
 }
 .footer-links a:hover { color: #fff; }
 
-.footer-fine {
-  margin-top: 1.5rem;
-  padding-top: 1rem;
+.footer-bottom {
+  margin-top: 1.75rem;
+  padding: 1.25rem 0 clamp(2.25rem, 5vw, 3.5rem);
   border-top: 1px dashed var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 1.5rem;
+}
+
+.footer-legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+}
+
+.footer-legal a {
+  color: rgba(236, 237, 242, 0.88);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-legal a:hover {
+  color: #fff;
+}
+
+.footer-copyright {
+  margin: 0;
+}
+
+/* Legal subpages: footer is only bottom bar — give it breathing room */
+.site-footer--minimal {
+  border-top: 1px solid var(--line);
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.site-footer--minimal .footer-bottom {
+  margin-top: 0;
+  border-top: none;
+  padding-top: 1.75rem;
+}
+
+/* --- legal subpages (Impressum / Datenschutz) --------------------- */
+.legal-band {
+  padding: clamp(2.25rem, 6vw, 4rem) 0 clamp(3rem, 10vw, 6rem);
+  border-bottom: 1px solid var(--line);
+}
+
+.legal .container--narrow {
+  width: min(40rem, 100% - 2.5rem);
+  margin-inline: auto;
+}
+
+.legal-back {
+  display: inline-block;
+  margin-bottom: 1.75rem;
+  font-weight: 500;
+  font-size: 0.92rem;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.legal-back:hover {
+  color: #fff;
+}
+
+.legal h1 {
+  margin: 0 0 0.35rem;
+  font-size: clamp(1.65rem, 3.5vw, 2.2rem);
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
+.legal .legal-meta {
+  margin: 0 0 2rem;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.legal h2 {
+  margin: 2rem 0 0.65rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.legal h2:first-of-type {
+  margin-top: 1.5rem;
+}
+
+.legal p,
+.legal li {
+  margin: 0 0 0.85rem;
+  color: var(--text-soft);
+  font-size: 0.98rem;
+}
+
+.legal ul {
+  margin: 0 0 0.85rem;
+  padding-left: 1.25rem;
+}
+
+.legal a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.legal a:hover {
+  color: #fff;
+}
+
+.legal .placeholder-notice {
+  margin: 1.5rem 0 1.75rem;
+  padding: 1rem 1.15rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 210, 140, 0.35);
+  background: rgba(255, 210, 140, 0.06);
+  font-size: 0.92rem;
+  color: rgba(236, 237, 242, 0.88);
+}
+
+.legal .legal-placeholder {
+  margin: 1rem 0;
+  padding: 1rem 1.15rem;
+  border-left: 3px solid var(--warm);
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-size: 0.95rem;
+  color: rgba(236, 237, 242, 0.9);
+}
+
+.legal .legal-placeholder dt {
+  font-weight: 600;
+  color: #fff;
+  margin-top: 0.65rem;
+}
+
+.legal .legal-placeholder dt:first-child {
+  margin-top: 0;
+}
+
+.legal .legal-placeholder dd {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
 }
 
 /* --- a11y / motion ------------------------------------------------ */
